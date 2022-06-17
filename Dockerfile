@@ -7,7 +7,6 @@ RUN bash /repro/dist/setup
 
 USER repro
 
-RUN repro.require repro master ${REPROS_DEV}
 RUN repro.require graphviz-runtime exports --util
 
 CMD  /bin/bash -il
