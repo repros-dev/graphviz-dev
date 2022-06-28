@@ -17,6 +17,7 @@ fi
 # define name of result file
 cell_code=${tmp_dir}/${cell_id}.sh
 cell_output=${tmp_dir}/${cell_id}.txt
+gv_file=${products_dir}/${cell_id}.gv
 png_file=${products_dir}/${cell_id}.png
 
 # copy stdin to the cell code file
@@ -30,7 +31,8 @@ done
 bash ${cell_code} > ${cell_output}
 
 # use graphviz to create the visualization
-dot -Tpng ${cell_output} -o ${png_file}
+cp ${cell_output} ${gv_file}
+dot -Tpng ${gv_file} -o ${png_file}
 
 # print the script results
 echo "=========================================== BASH CELL ${cell_id} =============================================="
